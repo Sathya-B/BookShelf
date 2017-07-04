@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div
+          id="book-name"
+          ngModelGroup="bookDetails"
+          #bookDetails="ngModelGroup">
+          <div class="form-group">
+            <label for="bookname">Book Name</label>
+            <input
+              type="text"
+              id="bookname"
+              class="form-control"
+              ngModel
+              name="bookname"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="bookname">Author</label>
+            <input
+              type="text"
+              id="authorname"
+              class="form-control"
+              ngModel
+              name="authorname"
+              required>
+          </div>
+          <div class="form-group">   
+          <div class="form-inline">
+            <label for="date">Date of Purchase</label>
+            <input
+              type="date"
+              id="purchase-date"
+              class="form-control move-item"
+              ngModel
+              name="purchasedate"
+              required
+              date
+              #purchasedate="ngModel">
+            <span class="help-block" *ngIf="!purchasedate.valid && purchasedate.touched">Please enter a valid date!</span>
+          <label for="category">Category</label>        
+          <select
+            id="category"
+            class="form-control"
+            ngModel 
+            name="category">
+            <option  *ngFor="let categoryitem of bookinfo.categoryList" 
+            [value]="categoryitem.category">{{categoryitem.categorydef}}</option>
+           </select>
+           </div>
+          </div>
+          <div class="form-group">
+          <label for="notes">Notes to Self</label>
+          <textarea
+            name="notes"
+            rows="3"
+            class="form-control"
+            [(ngModel)]="notes"></textarea>
+        <label for="Current Status">Current Status</label>        
+        <div *ngFor="let status of bookinfo.statusList">
+            <input
+              type="radio"
+              name="currentstatus"
+              ngModel
+              [value]="status.currentstatus"
+              required>
+            {{ status.statusdef }}
+        </div>
+        </div>
+        <div [ngBusy]="busy"></div>
+         <p *ngIf="!bookDetails.valid && bookDetails.touched">Please update correct details!</p>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!f.valid">Submit</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  <hr>
+</div>

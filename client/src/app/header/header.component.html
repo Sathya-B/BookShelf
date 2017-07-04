@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <a routerLink="/" class="navbar-brand">Digital Book Shelf</a>
+            <button type="button" class="navbar-toggle collapsed"(click)="toggleState()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+    <div class="collapse navbar-collapse" [ngClass]="{'in': isIn}">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="/addbook">Add Book</a></li>
+        <li routerLinkActive="active"><a routerLink="/viewbooks">View Books</a></li>
+        <li routerLinkActive="active"><a routerLink="/updatebook" *ngIf="updatebook">UpdateBook</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

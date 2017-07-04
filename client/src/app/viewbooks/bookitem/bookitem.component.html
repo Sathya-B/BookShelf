@@ -1,0 +1,40 @@
+<div class="container">
+  <hr>
+  <div class="row row-margin-bottom">
+    <div class="col-md-5 no-padding lib-item" data-category="view">
+      <div class="lib-panel">
+        <div class="row box-shadow">
+          <div class="col-md-6">
+            <img class="lib-img-show" src="{{url}}">
+          </div>
+          <div class="col-md-6">
+            <div class="lib-row lib-header">
+              <p>{{book.bookname}}</p>
+              <div class="lib-header-seperator"></div>
+            </div>
+            <div [ngBusy]="busy"></div>
+            <div class="lib-row lib-desc">
+              <p>by {{book.authorname}}
+                  <dl>
+                    <dt>Category</dt>
+                    <dd>- {{category}}</dd>
+                    <dt>Status</dt>
+                    <dd>- {{currentstatus}}</dd>
+                    <dt>Puchase Date</dt>
+                    <dd>- {{book.purchasedate}}</dd>
+                    <dt>Notes</dt>
+                    <dd>{{book.notes}}</dd>
+                  </dl>
+                  <button
+                  class="btn btn-primary"
+                  type="submit" (click)="updateClicked()">Update</button>
+                  <button
+                  class="btn btn-danger"
+                  type="delete" (click)="deleteClicked()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
