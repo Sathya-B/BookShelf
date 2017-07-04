@@ -16,3 +16,5 @@ Client-
  run 'ng serve'
 
  Client would run at http://localhost:4200
+ 
+ ![Screenshot](screenshot.jpg)
